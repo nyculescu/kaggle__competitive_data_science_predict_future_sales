@@ -8,7 +8,14 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 # Input data files are available in the "../input/" directory.
 # For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
 
+# import os
+# for dirname, _, filenames in os.walk('datasets'):
+#     for filename in filenames:
+#         print(os.path.join(dirname, filename))
+
+import csv
 import os
-for dirname, _, filenames in os.walk('datasets'):
-    for filename in filenames:
-        print(os.path.join(dirname, filename))
+
+ifile = os.path.abspath(os.path.join('input', 'sales_training.csv'))
+with ifile as csvfile:
+    readCSV = csv.reader(csvfile, delimiter=',')
