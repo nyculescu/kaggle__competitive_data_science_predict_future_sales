@@ -13,9 +13,17 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 #     for filename in filenames:
 #         print(os.path.join(dirname, filename))
 
-import csv
 import os
+import csv
+import numpy as np
 
-ifile = os.path.abspath(os.path.join('input', 'sales_training.csv'))
-with ifile as csvfile:
+ifile = os.path.abspath(os.path.join('input', 'sales_train.csv'))
+rows = []
+with open(ifile) as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
+    for row in readCSV:
+        rows.append(row)
+
+print("csv row length: " + str(readCSV.line_num)) # use str() to avoid Exception has occurred: TypeError can only concatenate str (not "int") to str
+r = np.array(rows)
+print(r.nbytes)
