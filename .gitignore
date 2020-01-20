@@ -1,0 +1,6 @@
+*.bak
+*.bak.*
+logs/*
+images/**/*.dot
+.vscode
+ml_env
