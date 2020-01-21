@@ -13,17 +13,26 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 #     for filename in filenames:
 #         print(os.path.join(dirname, filename))
 
+# import os
+# import csv
+
+# ifile = os.path.abspath(os.path.join('input', 'sales_train.csv'))
+# rows = []
+# with open(ifile) as csvfile:
+#     readCSV = csv.reader(csvfile, delimiter=',')
+#     for row in readCSV:
+#         rows.append(row)
+
+# # use str() to avoid Exception has occurred: TypeError can only concatenate str (not "int") to str
+# print("csv row length: " + str(readCSV.line_num)) 
+# print("sizeof(row trasnformed into numpy obj): " + str(np.array(rows).nbytes) + " in bytes")
+
+
 import os
-import csv
-import numpy as np
+import pandas as pd
 
-ifile = os.path.abspath(os.path.join('input', 'sales_train.csv'))
-rows = []
-with open(ifile) as csvfile:
-    readCSV = csv.reader(csvfile, delimiter=',')
-    for row in readCSV:
-        rows.append(row)
+def load_data():
+    return pd.read_csv(os.path.abspath(os.path.join('input', 'sales_train.csv')))
 
-print("csv row length: " + str(readCSV.line_num)) # use str() to avoid Exception has occurred: TypeError can only concatenate str (not "int") to str
-r = np.array(rows)
-print(r.nbytes)
+sales_train = load_data()
+print(sales_train)
