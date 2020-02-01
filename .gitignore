@@ -1,5 +1,6 @@
 *.bak
 *.bak.*
+*.pxi
 logs/*
 .vscode
 ml_env
