@@ -1,3 +1,6 @@
+# This project is used for my learning purpose
+
+---
 # Description
 [Kaggle link](https://www.kaggle.com/c/competitive-data-science-predict-future-sales/data)
 
